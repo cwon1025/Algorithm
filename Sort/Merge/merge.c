@@ -5,7 +5,8 @@ void merge(int *arr, int start, int middle, int end) {
 	int i = start;
 	int j = middle + 1;
 	int k = start;
-
+	
+	// 작은 순서대로 배열에 삽입
 	while(i <= middle && j <= end) {
 		if(arr[i] <= arr[j]) {
 			sorted[k] = arr[i];
@@ -16,7 +17,8 @@ void merge(int *arr, int start, int middle, int end) {
 		}
 		k++;
 	}
-
+	
+	// 남은 데이터도 삽입
 	if(i > middle) {
 		for(int t = j; t <= end; t++) {
 			sorted[k] = arr[t];
@@ -29,6 +31,7 @@ void merge(int *arr, int start, int middle, int end) {
 		}
 	}
 	
+	// 정렬된 배열 삽입
 	for(int t = start; t <= end; t++) {
 		arr[t] = sorted[t];
 	}
